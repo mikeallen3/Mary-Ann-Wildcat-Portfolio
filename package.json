@@ -1,0 +1,19 @@
+{
+  "name": "Mary-Ann-Wildcat-Portfolio",
+  "description": "An Astra child theme for Mary Ann Wildcat's Portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mikeallen3/Mary-Ann-Wildcat-Portfolio.git"
+  },
+  "scripts": {
+    "build-css": "node-sass  --watch assets -o dist",
+    "watch": "nodemon  --watch assets -e scss, -x 'npm run build-css'"
+  },
+  "dependencies": {
+    "nodemon": "^1.19.1",
+    "node-sass": "^4.12.0"
+  }
+}

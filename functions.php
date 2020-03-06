@@ -9,16 +9,12 @@
  */
 
 /**
- * Define Constants
- */
-define( 'CHILD_THEME_MARY_ANN_WILDCAT_PORTFOLIO_VERSION', '1.0.0' );
-
-/**
  * Enqueue styles
  */
 function child_enqueue_styles() {
 
-	wp_enqueue_style( 'mary-ann-wildcat-portfolio-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_MARY_ANN_WILDCAT_PORTFOLIO_VERSION, 'all' );
+	wp_enqueue_style( 'mary-ann-wildcat-portfolio-theme-css', get_stylesheet_directory_uri() . '/dist/main.css', 
+		array('astra-theme-css'), filemtime(get_stylesheet_directory() . '/dist/main.css'));
 
 }
 
