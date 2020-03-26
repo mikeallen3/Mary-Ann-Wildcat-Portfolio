@@ -23,6 +23,8 @@ function portfolio_tiles() {
 	    'post_type' => 'post',
 	    'category_name' => 'projects',
 	    'posts_per_page' => '-1',
+	    'orderby'   => 'menu_order',
+        'order'     => 'DESC',
 	);
 
 	// The Query
@@ -38,13 +40,16 @@ function portfolio_tiles() {
 	    $thumb_id = get_post_thumbnail_id();
 	    $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 	    $thumb_url = $thumb_url_array[0];
+	    $thumb_image = get_the_post_thumbnail();
 
-	    echo '<a class="portfolio-anchor-link-wrap" href="' . get_the_permalink() . '">';
-	    echo '<div class="portfolio-container" style="">';
-	    echo get_the_post_thumbnail();
-	    echo '<span class="portfolio-title">' . get_the_title() . '</span>';
-	    echo '</div>';
-	    echo '</a>';
+	    if ( has_post_thumbnail() ) {
+	    	echo '<a class="portfolio-anchor-link-wrap" href="' . get_the_permalink() . '">';
+	    	echo '<span class="overlay-hover-color"></span>';
+	    	echo $thumb_image;
+	    	echo '<span class="portfolio-title">' . get_the_title() . '</span>';
+	    	echo '</a>';
+	    }
+
 	}
 
 	//Close container row
@@ -59,3 +64,53 @@ function portfolio_tiles() {
 	wp_reset_postdata();
 }
 add_shortcode( 'portfolio', 'portfolio_tiles' );
+
+
+/**
+ * Add page attributes to post
+ */
+function mytheme_add_post_attributes()
+{
+    add_post_type_support('post', 'page-attributes');
+}
+add_action('init', 'mytheme_add_post_attributes', 500);
+
+/**
+ * Add the menu_order property to the post object being saved
+ *
+ * @param \WP_Post|\stdClass $post
+ * @param WP_REST_Request $request
+ *
+ * @return \WP_Post
+ */
+function mytheme_pre_insert_post($post, \WP_REST_Request $request)
+{
+    $body = $request->get_body();
+    if ($body) {
+        $body = json_decode($body);
+        if (isset($body->menu_order)) {
+            $post->menu_order = $body->menu_order;
+        }
+    }
+
+    return $post;
+}
+add_filter('rest_pre_insert_post', 'mytheme_pre_insert_post', 12, 2);
+
+
+/**
+ * Load the menu_order property for frontend display in the admin
+ *
+ * @param \WP_REST_Response $response
+ * @param \WP_Post $post
+ * @param \WP_REST_Request $request
+ *
+ * @return \WP_REST_Response
+ */
+function mytheme_prepare_post(\WP_REST_Response $response, $post, $request)
+{
+    $response->data['menu_order'] = $post->menu_order;
+
+    return $response;
+}
+add_filter('rest_prepare_post', 'mytheme_prepare_post', 12, 3);

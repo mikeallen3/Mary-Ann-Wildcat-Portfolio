@@ -1,26 +1,40 @@
+//Color Variables
+$darkGreen  : #006349;
+$lightGreen : #8BF993;
+$hoverGreen : darken($lightGreen, 50%);
+$softYellow : #F7F6C9;
+$white      : #FFF;
+
+
 //Homepage container
-.home .ast-container {
-	width:100%!important;
-	max-width: 100%!important;
-	margin:0 auto!important;
-	padding:0!important;
+.home { 
+
+	.ast-container {
+		width:100%!important;
+		max-width: 100%!important;
+		margin:0 auto!important;
+		padding:0!important;
+	}
+
+	.entry-title {
+		display: none;
+	}
+
+	#primary {
+		padding:0!important;
+		margin:0!important
+	}
+
+	.entry-header {
+		margin-bottom: 0!important;
+	}
 }
 
+
+//Portfolio Styles
 .portfolio-query {
     display: flex;
     flex-wrap: wrap;
-}
-
-a.portfolio-anchor-link-wrap {
-	flex-basis:33.33%;
-}
-
-.portfolio-container {
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: auto;
-	position: relative;
 }
 
 .portfolio-title {
@@ -32,4 +46,55 @@ a.portfolio-anchor-link-wrap {
 	text-align: center;
 	font-size: 25px;
     font-weight: bold;
+    color:$darkGreen;
+    visibility: hidden;
+   	opacity: 0;
+   	transition: visibility 0s 0.4s, opacity 0.4s ease;
+}
+
+.overlay-hover-color {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.4s ease;
+}
+
+a.portfolio-anchor-link-wrap {
+	flex-basis:33.33%;
+	position: relative;
+
+	&:hover, &:focus {
+
+		.portfolio-title {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.2s ease;
+		}
+
+		.overlay-hover-color {
+			background-color: rgba( $lightGreen, .8 );
+			transition: all 0.2s ease;
+		}
+	}
+}
+
+
+//Header styles
+.main-header-bar {
+	background-color:$darkGreen;
+}
+
+.main-header-menu > .menu-item {
+	> a {
+		color:$white;
+	}
+
+	&:hover, &:focus {
+		> a {
+			color: $lightGreen;
+		}
+	}
 }
