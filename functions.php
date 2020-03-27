@@ -19,6 +19,8 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 //Portfolio Tiles
 function portfolio_tiles() {
+	ob_start();
+	
 	$args = array(
 	    'post_type' => 'post',
 	    'category_name' => 'projects',
@@ -62,6 +64,10 @@ function portfolio_tiles() {
 	 * wp_reset_postdata().
 	 */
 	wp_reset_postdata();
+
+	$content = ob_get_contents();
+	ob_end_clean();
+	return $content;
 }
 add_shortcode( 'portfolio', 'portfolio_tiles' );
 
@@ -114,3 +120,14 @@ function mytheme_prepare_post(\WP_REST_Response $response, $post, $request)
     return $response;
 }
 add_filter('rest_prepare_post', 'mytheme_prepare_post', 12, 3);
+
+
+//Add portfolio image full height
+function portfolio_full_height_image(){
+	ob_start();
+	echo '<div class="fixed-full-height-image"></div>';
+	$content = ob_get_contents();
+	ob_end_clean();
+	return $content;
+}
+add_shortcode( 'portfolio_image', 'portfolio_full_height_image' );
