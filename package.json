@@ -9,18 +9,20 @@
     "url": "git@github.com:mikeallen3/Mary-Ann-Wildcat-Portfolio.git"
   },
   "scripts": {
-    "build-css": "node-sass  --watch assets -o dist --source-map-embed",
-    "build-css-prod": "node-sass --output-style compressed assets -o dist",
+    "build-css": "node-sass assets/styles/main.scss dist/main.css --source-map-embed",
+    "build-css-prod": "node-sass --output-style compressed assets/styles/main.scss dist/main.css",
+    "copy-images": "ncp assets/images dist/images",
     "autoprefixer": "postcss --no-map -u autoprefixer  -o dist/main.css dist/main.css",
     "watch": "nodemon  --watch assets -e scss, -x 'npm run build-css && npm run autoprefixer'",
-    "build-prod": "npm run build-css-prod && npm run autoprefixer"
+    "build-prod": "npm run build-css-prod && npm run autoprefixer && npm run copy-images"
   },
   "dependencies": {
-    "browserslist": "^4.6.6",
     "autoprefixer": "^9.6.1",
-    "nodemon": "^1.19.1",
-    "node-sass": "^4.12.0",
-    "postcss-cli": "^6.1.3"
+    "browserslist": "^4.6.6",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "postcss-cli": "^7.1.0"
   },
   "browserslist": [
     "defaults"
