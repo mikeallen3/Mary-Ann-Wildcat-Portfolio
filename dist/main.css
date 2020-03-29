@@ -1,3 +1,26 @@
+h1 {
+  color: #006349 !important; }
+
+h2, h3, h4, h5, h6 {
+  color: #000 !important; }
+
+p, li {
+  color: #000; }
+
+a.wp-block-button__link {
+  background-color: #006349; }
+
+::-moz-selection {
+  background: #8BF993;
+  color: #000; }
+
+::selection {
+  background: #8BF993;
+  color: #000; }
+
+h1.entry-title {
+  color: #000 !important; }
+
 .ast-page-builder-template .entry-title {
   display: none; }
 
@@ -48,7 +71,8 @@ a.portfolio-anchor-link-wrap {
     transition: all 0.2s ease; }
 
 .main-header-bar {
-  background-color: #006349; }
+  background-color: #006349;
+  border-bottom-width: 0px !important; }
 
 .main-header-menu > .menu-item > a {
   color: #FFF; }
@@ -70,3 +94,6 @@ a.portfolio-anchor-link-wrap {
   background: url("../dist/images/mw-1.jpg") no-repeat;
   background-position: center center;
   background-size: cover; }
+
+.ast-footer-overlay {
+  background-color: #006349; }

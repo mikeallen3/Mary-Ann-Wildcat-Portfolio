@@ -1,9 +1,37 @@
 //Color Variables
 $darkGreen  : #006349;
-$lightGreen : #8BF993;
-$hoverGreen : darken($lightGreen, 50%);
+$limeGreen : #8BF993;
+$hoverGreen : darken($limeGreen, 50%);
 $softYellow : #F7F6C9;
 $white      : #FFF;
+$black		: #000;
+
+
+//Global Styles
+h1 {
+	color:$darkGreen!important;
+}
+
+h2, h3, h4, h5, h6 {
+	color:$black!important;
+}
+
+p, li {
+	color:$black;
+}
+
+a.wp-block-button__link {
+	background-color: $darkGreen;
+}
+
+::selection {
+  background: $limeGreen;
+  color:$black;
+}
+
+h1.entry-title {
+	color:$black!important;
+}
 
 
 //Full width template
@@ -68,7 +96,7 @@ a.portfolio-anchor-link-wrap {
 		}
 
 		.overlay-hover-color {
-			background-color: rgba( $lightGreen, .8 );
+			background-color: rgba( $limeGreen, .8 );
 			transition: all 0.2s ease;
 		}
 	}
@@ -78,6 +106,7 @@ a.portfolio-anchor-link-wrap {
 //Header styles
 .main-header-bar {
 	background-color:$darkGreen;
+	border-bottom-width:0px!important;
 }
 
 .main-header-menu > .menu-item {
@@ -87,11 +116,10 @@ a.portfolio-anchor-link-wrap {
 
 	&:hover, &:focus {
 		> a {
-			color: $lightGreen;
+			color: $limeGreen;
 		}
 	}
 }
-
 
 //Column styles
 .full-width-column-padding {
@@ -111,4 +139,10 @@ a.portfolio-anchor-link-wrap {
 	background: url('../dist/images/mw-1.jpg') no-repeat;
 	background-position: center center;
 	background-size: cover; 
+}
+
+
+//Footer styles
+.ast-footer-overlay {
+	background-color:$darkGreen;
 }
