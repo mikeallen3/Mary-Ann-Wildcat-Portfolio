@@ -74,14 +74,14 @@ a.wp-block-button__link {
 
 .portfolio-title {
 	position: absolute;
-	top:50%;
+	top:45%;
 	bottom:0;
 	left:0;
 	right:0;
 	text-align: center;
 	font-size: 25px;
     font-weight: bold;
-    color:$darkGreen;
+    color:$limeGreen;
     visibility: hidden;
    	opacity: 0;
    	transition: visibility 0s 0.4s, opacity 0.4s ease;
@@ -110,12 +110,28 @@ a.portfolio-anchor-link-wrap {
 		}
 
 		.overlay-hover-color {
-			background-color: rgba( $limeGreen, .8 );
+			background-color: rgba( $darkGreen, .9 );
 			transition: all 0.2s ease;
 		}
 	}
 }
 
+nav .close {
+	color:white!important;
+}
+
+@media only screen and (max-width: 850px) {
+	a.portfolio-anchor-link-wrap {
+		flex-basis:50%;
+	}
+}
+
+
+@media only screen and (max-width: 600px) {
+	a.portfolio-anchor-link-wrap {
+		flex-basis:100%;
+	}
+}
 
 //Header styles
 .main-header-bar {

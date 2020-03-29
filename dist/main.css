@@ -46,14 +46,14 @@ a.wp-block-button__link {
 
 .portfolio-title {
   position: absolute;
-  top: 50%;
+  top: 45%;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
   font-size: 25px;
   font-weight: bold;
-  color: #006349;
+  color: #8BF993;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.4s, opacity 0.4s ease; }
@@ -75,8 +75,19 @@ a.portfolio-anchor-link-wrap {
     opacity: 1;
     transition: opacity 0.2s ease; }
   a.portfolio-anchor-link-wrap:hover .overlay-hover-color, a.portfolio-anchor-link-wrap:focus .overlay-hover-color {
-    background-color: rgba(139, 249, 147, 0.8);
+    background-color: rgba(0, 99, 73, 0.9);
     transition: all 0.2s ease; }
+
+nav .close {
+  color: white !important; }
+
+@media only screen and (max-width: 850px) {
+  a.portfolio-anchor-link-wrap {
+    flex-basis: 50%; } }
+
+@media only screen and (max-width: 600px) {
+  a.portfolio-anchor-link-wrap {
+    flex-basis: 100%; } }
 
 .main-header-bar {
   background-color: #006349;
