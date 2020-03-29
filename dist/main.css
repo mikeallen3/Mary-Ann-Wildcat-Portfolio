@@ -7,9 +7,6 @@ h2, h3, h4, h5, h6 {
 p, li {
   color: #000; }
 
-a.wp-block-button__link {
-  background-color: #006349; }
-
 ::-moz-selection {
   background: #8BF993;
   color: #000; }
@@ -20,6 +17,17 @@ a.wp-block-button__link {
 
 h1.entry-title {
   color: #000 !important; }
+
+a {
+  color: #006349; }
+  a:hover, a:focus {
+    color: black; }
+
+a.wp-block-button__link {
+  background-color: #006349; }
+
+.page.ast-plain-container .entry-title {
+  display: none; }
 
 .ast-page-builder-template .entry-title {
   display: none; }
@@ -75,7 +83,10 @@ a.portfolio-anchor-link-wrap {
   border-bottom-width: 0px !important; }
 
 .main-header-menu > .menu-item > a {
-  color: #FFF; }
+  color: #FFF;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase; }
 
 .main-header-menu > .menu-item:hover > a, .main-header-menu > .menu-item:focus > a {
   color: #8BF993; }

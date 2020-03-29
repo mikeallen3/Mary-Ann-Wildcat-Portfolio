@@ -20,10 +20,6 @@ p, li {
 	color:$black;
 }
 
-a.wp-block-button__link {
-	background-color: $darkGreen;
-}
-
 ::selection {
   background: $limeGreen;
   color:$black;
@@ -33,6 +29,24 @@ h1.entry-title {
 	color:$black!important;
 }
 
+a {
+	color:$darkGreen;
+
+	&:hover, &:focus {
+		color:darken($darkGreen, 30%);
+	}
+}
+
+a.wp-block-button__link {
+	background-color: $darkGreen;
+}
+
+//Removed Entry Title
+.page.ast-plain-container {
+	.entry-title {
+		display: none;
+	}
+}
 
 //Full width template
 .ast-page-builder-template {
@@ -112,6 +126,9 @@ a.portfolio-anchor-link-wrap {
 .main-header-menu > .menu-item {
 	> a {
 		color:$white;
+		font-size: 17px;
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 
 	&:hover, &:focus {
