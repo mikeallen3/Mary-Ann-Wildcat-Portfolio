@@ -131,3 +131,34 @@ function portfolio_full_height_image(){
 	return $content;
 }
 add_shortcode( 'portfolio_image', 'portfolio_full_height_image' );
+
+
+//Change Next Post Text 
+/**
+ * Function to change the Next Post/ Previous post text.
+ *
+ * @param array $args Arguments for next post / previous post links.
+ * @return array
+ */
+function astra_change_next_prev_text( $args ) {
+    $next_post = get_next_post();
+    $prev_post = get_previous_post();
+    $next_text = false;
+    if ( $next_post ) {
+        $next_text = sprintf(
+            '%s <span class="ast-right-arrow">→</span>',
+            'Next Project'
+        );
+    }
+    $prev_text = false;
+    if ( $prev_post ) {
+        $prev_text = sprintf(
+            '<span class="ast-left-arrow">←</span> %s',
+            'Previous Project'
+        );
+    }
+    $args['next_text'] = $next_text;
+    $args['prev_text'] = $prev_text;
+    return $args;
+}
+add_filter( 'astra_single_post_navigation', 'astra_change_next_prev_text' );

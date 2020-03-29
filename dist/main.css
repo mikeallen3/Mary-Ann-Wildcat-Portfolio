@@ -26,6 +26,12 @@ a {
 a.wp-block-button__link {
   background-color: #006349; }
 
+.single .post-navigation a {
+  color: #006349;
+  font-weight: bold; }
+  .single .post-navigation a:hover, .single .post-navigation a:focus {
+    color: #003023; }
+
 .page.ast-plain-container .entry-title {
   display: none; }
 

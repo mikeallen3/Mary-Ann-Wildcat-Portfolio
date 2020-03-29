@@ -41,6 +41,15 @@ a.wp-block-button__link {
 	background-color: $darkGreen;
 }
 
+.single .post-navigation a {
+	color:$darkGreen;
+	font-weight: bold;
+
+	&:hover, &:focus {
+		color:darken($darkGreen, 10%);
+	}
+}
+
 //Removed Entry Title
 .page.ast-plain-container {
 	.entry-title {
