@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "autoprefixer": "^9.6.1",
-    "browserslist": "^4.6.6",
+    "browserslist": "^4.16.5",
     "ncp": "^2.0.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
